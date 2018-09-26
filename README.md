@@ -36,6 +36,7 @@ Inicialmente, deve ser aceita a licença para a instalação do Quartus. Após o
 
 Agora é escolhido quais componentes serão instalados. É recomendada a instalação de cada *software* principal (*Quartus Prime, Quartus Help e ModelSim*) separadamente, logo, a escolha dos componentes deve ser igual à imagem abaixo:
 ![Componnentes que devem ser instalados nesta parte do tutorial](https://raw.githubusercontent.com/arthurmteodoro/install-quartus-linux/master/images/1_comps_install_quartus.png)
+
 Após isto, é necesário somente prosseguir a instalação, aguardando a tela de confirmação da instalação. Chegando neste tela, é necessário pressionar o botão *Finish* para fechar a interface gráfica, porém, no terminal em que tal instalação estava sendo executado, a aplicação não terminará, sendo necessário assim fechá-la manualmente utilizando *Ctrl+C* para terminar a aplicação.
 
 Feito isso, o Quartus foi instalado, porém, ainda é necessário a instalação do *Quartus Help* e do *ModelSim*.
@@ -202,9 +203,15 @@ Seguindo este tutorial, o Quartus Prime e o ModelSim pode ser instalado na máqu
 
 ## Fontes
 Altera Design Software - Arch Linux - https://wiki.archlinux.org/index.php/Altera_Design_Software
+
 Quartus Linux Guide - Edison Cristovao  - https://github.com/EdisonCristovao/quartus-linux-guide
+
 Configuração da USB para programação do FPGA via JTAG - IFSC - https://wiki.sj.ifsc.edu.br/wiki/index.php/Configura%C3%A7%C3%A3o_da_USB_para_programa%C3%A7%C3%A3o_do_FPGA_via_JTAG
+
 ModelSim 17.1 (Starters Edition) for (Arch) Linux - https://gist.github.com/dries007/36c31fb8b2d712dfb41c6709f16e6e66
+
 Running ModelSim-Altera from the Quartus Prime Lite IDE under Linux - http://twoerner.blogspot.com/2017/10/running-modelsim-altera-from-quartus.html
+
 How to install Quartus & modelsim on Ubuntu 16.04 LTS - https://www.youtube.com/watch?v=uXwCPoqjpiY
+
 
