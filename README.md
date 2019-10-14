@@ -43,9 +43,9 @@ Feito isso, o Quartus foi instalado, porém, ainda é necessário a instalação
 
 ## Instalação do Quartus Help
 
-A instalação do Quartus Help é muito fácil, devendo ser executado o comando 
+A instalação do Quartus Help é muito fácil, devendo ser executado o comando
 
-    $ ./QuartusLiteSetup-18.0.0.614-linux.run
+    $ ./QuartusHelpSetup-18.0.0.614-linux.run
    na pasta *components* para inicializar o instalador. Após o aceite da licença, é necessário escolher em qual pasta ele será instalado, devendo ser escolhida a mesma em que o Quartus foi instalada. Caso foi escolhido a pasta recomendada neste tutorial, não é necessário se preocupar com isso, uma vez que a pasta escolhida é a padrão do Quartus Help.
 
 Assim como o Quartus, após a instalação, a interface gráfica será fechada porém a aplicação no terminal continuará ativa, sendo necessário terminá-la com *Ctrl+C*.
@@ -73,7 +73,7 @@ Assim, o Quartus será executado normalmente.
 ### Integração com o sistema
 A integração do Quartus com o sistema operacional não é necessária, porém, altamente recomendada.
 
-#### Variável `PATH` 
+#### Variável `PATH`
 Para conseguir executar o Quartus a partir de um terminal sem ser necessário digitar todo o caminho completo, pode ser criada uma variável `PATH` para isso. Primeiramente, é necessário criar o arquivo `quartus.sh` em `/etc/profile.d` com o seguinte conteúdo:
 
     export PATH=$PATH:/home/nome_do_usuario/intelFPGA/18.0/quartus/bin
@@ -148,7 +148,7 @@ O ModelSim possui um problema com a versão 4 do *kernel* Linux. Para resolver e
    para
 
     vco="linux" ;;
-   
+
 ### Dependência da biblioteca *freetype2*
 
 A biblioteca *freetype2* foi atualizada da versão 2.5.0.1-1 para 2.5.0.1-2, causando os seguintes erros no ModelSim:
@@ -213,5 +213,3 @@ ModelSim 17.1 (Starters Edition) for (Arch) Linux - https://gist.github.com/drie
 Running ModelSim-Altera from the Quartus Prime Lite IDE under Linux - http://twoerner.blogspot.com/2017/10/running-modelsim-altera-from-quartus.html
 
 How to install Quartus & modelsim on Ubuntu 16.04 LTS - https://www.youtube.com/watch?v=uXwCPoqjpiY
-
-
