@@ -1,4 +1,4 @@
-﻿# Instalação do Quartus Prime em Linux
+# Instalação do Quartus Prime em Linux
 
 O Quartus Prime é a ferramenta para desenvolvimento da Altera para FPGAs. Por ela, é possível o desenvvolvimento fazendo uso de bloco ou utilizando uma HDL, como VHDL ou Verilog. Ela possui suporte para os ambientes Windows ou Linux, porém, no ambiente Linux, sua instalação não é tão fácil quanto no Windows.
 
@@ -32,7 +32,7 @@ Após o download do Quartus e a configuração do ambiente, é a fez de realizar
 Na pasta components, estão os executáveis para a instalação do Quartus, este sim sendo executados para a instalação. Inicialmente, deve ser executado o *QuartusLiteSetup-18.0.0.614-linux.run*, usando o comando:
 
     $ ./QuartusLiteSetup-18.0.0.614-linux.run
-Inicialmente, deve ser aceita a licença para a instalação do Quartus. Após o termo de aceite, é possível escolher a pasta onde o Quartus será executada, sendo recomendada a pasta `/home/nome_do_usuario/intelFPGA/18.0`, muito parecida com a original, exceto pelo fato da pasta padrão ser chamada de `intelFPGA_lite`, que não é o padrão para o *ModelSim*, logo, é recomendado o uso de `intelFPGA`.
+Inicialmente, deve ser aceita a licença para a instalação do Quartus. Após o termo de aceite, é possível escolher a pasta onde o Quartus será executada, sendo recomendada a pasta `/home/<nome_do_usuario>/intelFPGA/18.0`, muito parecida com a original, exceto pelo fato da pasta padrão ser chamada de `intelFPGA_lite`, que não é o padrão para o *ModelSim*, logo, é recomendado o uso de `intelFPGA`.
 
 Agora é escolhido quais componentes serão instalados. É recomendada a instalação de cada *software* principal (*Quartus Prime, Quartus Help e ModelSim*) separadamente, logo, a escolha dos componentes deve ser igual à imagem abaixo:
 ![Componnentes que devem ser instalados nesta parte do tutorial](https://raw.githubusercontent.com/arthurmteodoro/install-quartus-linux/master/images/1_comps_install_quartus.png)
@@ -67,7 +67,7 @@ O instalador assim como os demais, não terminará após a instalação, também
 
 Para realizar a execução do Quartus no Linux, deve ser executado o comando
 
-    $ /home/nome_do_usuario/intelFPGA/18.0/quartus/bin/quartus --64bit
+    $ /home/<nome_do_usuario>/intelFPGA/18.0/quartus/bin/quartus --64bit
 Assim, o Quartus será executado normalmente.
 
 ### Integração com o sistema
@@ -76,7 +76,7 @@ A integração do Quartus com o sistema operacional não é necessária, porém,
 #### Variável `PATH`
 Para conseguir executar o Quartus a partir de um terminal sem ser necessário digitar todo o caminho completo, pode ser criada uma variável `PATH` para isso. Primeiramente, é necessário criar o arquivo `quartus.sh` em `/etc/profile.d` com o seguinte conteúdo:
 
-    export PATH=$PATH:/home/nome_do_usuario/intelFPGA/18.0/quartus/bin
+    export PATH=$PATH:/home/<nome_do_usuario>/intelFPGA/18.0/quartus/bin
 Após isso, é necessário tornar o arquivo executável:
 
     chmod +x /etc/profile.d/quartus.sh
@@ -110,15 +110,15 @@ Assim, o arquivo deve ser *recarregado* usando o comando `udevadm`. Atenção: T
 
 Para verificar se a instalação ocorreu bem, conecte o dispositivo Altera e execute:
 
-    $ /home/nome_do_usuario/intelFPGA/18.0/quartus/bin/jtagconfig
+    $ /home/<nome_do_usuario>/intelFPGA/18.0/quartus/bin/jtagconfig
 Você terá usa saída parecida com:
 
     1) USB-Blaster [USB 1-1.1]
 	  020B30DD   EP2C15/20
 Caso a saída não tenha o nome da placa, você possui um problema para a inicialização do `nios2 tools`. Para resolver este problema, execute:
 
-    # mkdir /etc/jtagd
-	# cp /home/nome_do_usuario/intelFPGA/18.0/quartus/linux/pgm_parts.txt /etc/jtagd/jtagd.pgm_parts
+    $ mkdir /etc/jtagd
+	$ cp /home/nome_do_usuario/intelFPGA/18.0/quartus/linux/pgm_parts.txt /etc/jtagd/jtagd.pgm_parts
 
 e reinicie o jtagd:
 
@@ -131,9 +131,9 @@ e reinicie o jtagd:
     1) USB-Blaster [2-4]
     020F30DD EP3C25/EP4CE22
 
-Caso você receba uma mensagem de erro sobre *linux64*, crie um link simbólico de *linux* para *linux64* em `/home/nome_do_usuario/intelFPGA/18.0/quartus`:
+Caso você receba uma mensagem de erro sobre *linux64*, crie um link simbólico de *linux* para *linux64* em `/home/<nome_do_usuario>/intelFPGA/18.0/quartus`:
 
-    # ln -s /home/nome_do_usuario/intelFPGA/18.0/quartus/linux /home/nome_do_usuario/intelFPGA/18.0/quartus/linux64
+    $ ln -s /home/<nome_do_usuario>/intelFPGA/18.0/quartus/linux /home/<nome_do_usuario>/intelFPGA/18.0/quartus/linux64
 
 ## Execução do ModelSim
 
@@ -179,12 +179,12 @@ ou
 	"ncFyP12 -+"
 	    (file "/mtitcl/vsim/vsim" line 1)
 	** Fatal: Read failure in vlm process (0,0)
-A solução para este problema é o download e ligação dos binários diretamente nos *scripts* do ModelSim. Os arquivos binários podem ser baixados neste [link](https://dl.dries007.net/lib32-freetype2-2.5.0.1.tar.xz). Assim que o download for concluído, o conteúdo da pasta (ou seja, a pasta lib32) deve ser copiado para `/home/nome_do_usuario/intelFPGA/18.0/modelsim_ase/` o *script* `/home/nome_do_usuario/intelFPGA/18.0/modelsim_ase/vco` deve ser alterado, inserido a seguinte linha após a aparição de ``dir=`dirname "$arg0"` ``.
+A solução para este problema é o download e ligação dos binários diretamente nos *scripts* do ModelSim. Os arquivos binários podem ser baixados neste [link](https://dl.dries007.net/lib32-freetype2-2.5.0.1.tar.xz). Assim que o download for concluído, o conteúdo da pasta (ou seja, a pasta lib32) deve ser copiado para `/home/<nome_do_usuario>/intelFPGA/18.0/modelsim_ase/` o *script* `/home/<nome_do_usuario>/intelFPGA/18.0/modelsim_ase/vco` deve ser alterado, inserido a seguinte linha após a aparição de ``dir=`dirname "$arg0"` ``.
 
     export LD_LIBRARY_PATH=${dir}/lib32/
-Porém, o mesmo erro acontecerá quando o ModelSim for iniciado a partir do Quartus. Para resolver este problema, a seguinte linha deve ser colocar o mais próximo possível do arquivo `/home/nome_do_usuario/intelFPGA/18.0/quartus/adm/qenv.sh`
+Porém, o mesmo erro acontecerá quando o ModelSim for iniciado a partir do Quartus. Para resolver este problema, a seguinte linha deve ser colocar o mais próximo possível do arquivo `/home/<nome_do_usuario>/intelFPGA/18.0/quartus/adm/qenv.sh`
 
-    export LD_LIBRARY_PATH=/home/polo/intelFPGA/18.0/modelsim_ase/lib32:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/home/<nome_do_usuario>/intelFPGA/18.0/modelsim_ase/lib32:$LD_LIBRARY_PATH
 
 ### Criação do ícone no sistema
 Para ter o ícone do ModelSim no sistema, é necessário criar o arquivo `modelsim.desktop` em `~/.local/share/applications` contendo:
